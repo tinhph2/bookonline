@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="{% url 'timsach' %}">
+        {% csrf_token %}
+        Tên sách <input type="text" name="ten" id="ten"> <button type="submit"  name="Tìm">Tìm sách</button> 
+    </form>
+    <br>
+    <br>
+    <table border="1px">
+
+        <tr >
+        
+            <td>Tên Sách</td>
+            <td>Tác giả</td>
+            <td>Giá</td>
+            <td>Sửa</td>
+            <td>Xóa</td>
+        </tr>
+        {% for s in sach %}
+        <tr>
+            <td>{{s.tenSach}}</td>
+            <td>{{s.tacGia}}</td>
+            <td>{{s.gia}}</td>
+            <td><a href="#">Sửa</a></td>
+            <td><a href="#">Xóa</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
