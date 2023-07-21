@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Sach
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 def danh_sach(request):
@@ -9,14 +10,14 @@ def danh_sach(request):
     }
     return render(request, "bookstore/index.html",context)
 
-def capnhat(request, sach_id):
+def capnhat_sach(request, sach_id):
     sach = get_object_or_404(Sach, id = sach_id)
     context = {
         'sach' : sach
     }
     return render(request,"bookstore/capnhat-sach.html",context) 
 
-def capnhat_xuly(request):
+def xu_ly_capnhat_sach(request):
     pass
     # if request.method == "POST":
     #     rq_id = request.POST.get("customer_id")
