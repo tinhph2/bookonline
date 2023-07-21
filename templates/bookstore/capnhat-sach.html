@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Cập nhật thông tin sách</h1>
-    <form>
+    <form action="{% url 'xu_ly_capnhat' %}" method="POST">
       {% csrf_token %} Tên sách <br />
       <input
         type="text"
@@ -24,7 +24,7 @@
         <option value="{{tg.id}}">{{ tg.tenTacGia }}</option>
         {% endfor %}
       </select><br>
-      <input type="hidden" name="sach_id" value="sach_id">
+      <input type="hidden" name="sach_id" value="{{sach.id}}">
       <input  type="submit"  value="Cập nhật" />
     </form>
   </body>

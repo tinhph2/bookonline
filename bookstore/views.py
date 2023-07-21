@@ -19,19 +19,18 @@ def capnhat_sach(request, sach_id):
     }
     return render(request,"bookstore/capnhat-sach.html",context) 
 
-def xu_ly_capnhat_sach(request):
-    pass
-    # if request.method == "POST":
-    #     rq_id = request.POST.get("customer_id")
-    #     rq_name = request.POST.get("name")
-    #     rq_phone = request.POST.get("phone")
-    #     rq_address = request.POST.get("address")
-    #     Customer.objects.filter(id=rq_id).update(name = rq_name, phone = rq_phone, address = rq_address)
-    #     list_customer = Customer.objects.all()
-    #     context = {
-    #         'list_customer':list_customer
-    #     }
-    #     return render(request,"customer/list-customer.html",context)
+def xu_ly_capnhat(request):
+    if request.method == "POST":
+        rq_sach_id = request.POST.get("sach_id")
+        rq_ten_sach = request.POST.get("ten_sach")
+        rq_gia = request.POST.get("gia")
+        rq_tacgia = request.POST.get("tacgia")
+        Sach.objects.filter(id=rq_sach_id).update(tenSach = rq_ten_sach, gia = rq_gia, tacGia = rq_tacgia)
+        sach = Sach.objects.all()
+        context = {
+            'sach':sach
+        }
+        return render(request, "bookstore/index.html",context)
 
 def timsach(request):        
     if request.method == 'POST': # this will be GET now      
