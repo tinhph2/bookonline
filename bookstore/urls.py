@@ -4,4 +4,6 @@ from bookstore import views
 urlpatterns = [
     path('',views.danh_sach, name="danh_sach"),
     path('/timsach',views.timsach, name="timsach"),
+    path('capnhat/<int:sach_id>/',views.capnhat_sach,name='capnhat_sach'),
 ]
+

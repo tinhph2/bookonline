@@ -7,7 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Quan ly sach</h1>
+    <h1>Quan ly sach
+        
+    </h1>
     <form method="post" action="{% url 'timsach' %}">
         {% csrf_token %}
         Tên sách <input type="text" name="ten" id="ten"> <button type="submit"  name="Tìm">Tìm sách</button> 
