@@ -21,10 +21,11 @@
       Tác giả <br />
       <select id="tacgia" name="tacgia">
         {% for tg in tacgia %}
-        <option value="{{ tg.id}}">{{ tg.tenTacGia }}</option>
+        <option value="{{tg.id}}">{{ tg.tenTacGia }}</option>
         {% endfor %}
       </select><br>
-      <input type="submit" value="Cập nhật" />
+      <input type="hidden" name="sach_id" value="sach_id">
+      <input  type="submit"  value="Cập nhật" />
     </form>
   </body>
 </html>
