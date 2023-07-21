@@ -8,10 +8,11 @@
 <body>
     <h1>Cập nhật thông tin sách</h1>
     <form>
+        {% csrf_token %}
         Tên sách <br>
-        <input type="text" name="ten_sach" id="ten_sach"><br>
+        <input type="text" name="ten_sach" id="ten_sach" value="{{sach.tenSach}}"> <br>
         Giá <br>
-        <input type="text" name="gia" id="gia"><br>
+        <input type="text" name="gia" id="gia" value="{{sach.gia}}"> <br>
         Tác giả <br>
 
         <input type="submit" value="Cập nhật">
