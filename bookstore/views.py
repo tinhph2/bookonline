@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Sach
+from .models import Sach, TacGia
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
@@ -12,8 +12,10 @@ def danh_sach(request):
 
 def capnhat_sach(request, sach_id):
     sach = get_object_or_404(Sach, id = sach_id)
+    tacgia = TacGia.objects.all()
     context = {
-        'sach' : sach
+        'sach' : sach,
+        'tacgia':tacgia
     }
     return render(request,"bookstore/capnhat-sach.html",context) 
 

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Cập nhật thông tin sách</h1>
     <form>
-        {% csrf_token %}
-        Tên sách <br>
-        <input type="text" name="ten_sach" id="ten_sach" value="{{sach.tenSach}}"> <br>
-        Giá <br>
-        <input type="text" name="gia" id="gia" value="{{sach.gia}}"> <br>
-        Tác giả <br>
-
-        <input type="submit" value="Cập nhật">
+      {% csrf_token %} Tên sách <br />
+      <input
+        type="text"
+        name="ten_sach"
+        id="ten_sach"
+        value="{{sach.tenSach}}"
+      />
+      <br />
+      Giá <br />
+      <input type="text" name="gia" id="gia" value="{{sach.gia}}" /> <br />
+      Tác giả <br />
+      <select id="tacgia" name="tacgia">
+        {% for tg in tacgia %}
+        <option value="{{ tg.id}}">{{ tg.tenTacGia }}</option>
+        {% endfor %}
+      </select><br>
+      <input type="submit" value="Cập nhật" />
     </form>
-</body>
+  </body>
 </html>
