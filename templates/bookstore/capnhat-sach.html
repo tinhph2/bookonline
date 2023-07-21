@@ -12,7 +12,7 @@
       <input
         type="text"
         name="ten_sach"
-        id="ten_sach"
+        id="ten_sach" 
         value="{{sach.tenSach}}"
       />
       <br />
@@ -20,8 +20,9 @@
       <input type="text" name="gia" id="gia" value="{{sach.gia}}" /> <br />
       Tác giả <br />
       <select id="tacgia" name="tacgia">
+        <option value="{{tg.id}}" selected >{{sach.tacGia }}</option>
         {% for tg in tacgia %}
-        <option value="{{tg.id}}">{{ tg.tenTacGia }}</option>
+        <option value="{{ tg.id }}" {% if tg.id == sach.tacgia %}selected{% endif %}>{{ tg.tenTacGia }}</option>
         {% endfor %}
       </select><br>
       <input type="hidden" name="sach_id" value="{{sach.id}}">
